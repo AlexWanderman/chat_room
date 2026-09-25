@@ -1,0 +1,117 @@
+body {
+    display: grid;
+    grid-template-areas:
+        ". header ."
+        ". content ."
+        ". footer .";
+    grid-template-columns: auto minmax(0, 600px) auto;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    overflow: clip;
+}
+
+.menu-room-name {
+    padding: 4px;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: var(--message-bg);
+    color: var(--message-fg);
+    width: max-content;
+}
+
+.menu-room-description {
+    margin: 8px 0;
+    padding: 6px 0;
+    text-align: justify;
+    color: var(--message-fg);
+    max-width: 600px;
+}
+
+.menu-you {
+    margin: 8px 0;
+}
+
+.menu-members {
+    display: grid;
+    gap: 4px;
+    margin: 8px 0;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    font-size: large;
+    margin: 12px 6px 6px 6px;
+    display: grid;
+    grid-template-columns: auto 1fr auto 1fr auto;
+    align-items: center;
+}
+
+.content {
+    grid-area: content;
+    overflow: scroll;
+}
+
+.member-announce {
+    margin: 12px 0;
+    display: grid;
+    gap: 4px;
+    text-align: center;
+}
+
+.message {
+    margin: 12px 6px;
+    display: grid;
+    gap: 4px;
+}
+
+.message-header {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+    gap: 6px;
+    align-items: center;
+}
+
+.message-self {
+    display: inline-block;
+    padding: 4px;
+    border-radius: 6px;
+    width: fit-content;
+    font-size: small;
+    font-weight: bold;
+    background-color: var(--me-bg);
+    color: var(--me-fg);
+}
+
+.message-other {
+    display: inline-block;
+    padding: 4px;
+    border-radius: 6px;
+    width: fit-content;
+    font-size: small;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--other-bg);
+    color: var(--other-fg);
+}
+
+.message-content {
+    margin: 2px 0;
+    padding: 4px;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+    width: fit-content;
+    background-color: var(--message-bg);
+    color: var(--message-fg);
+}
+
+.footer {
+    grid-area: footer;
+    margin: 6px 8px 12px 8px;
+}
+
+.footer-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+}

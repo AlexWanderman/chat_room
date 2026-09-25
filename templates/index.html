@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reception</title>
+        <link rel="shortcut icon" href="/static/common/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/static/common/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/common/style.css" />
+        <link rel="stylesheet" href="/static/index/style.css" />
+        <script src="/static/index/script.js" type="module"></script>
+    </head>
+    <body>
+        <!-- Create room dialog -->
+        <dialog id="create-room-dialog" class="dialog" popover>
+            <div class="dialog-content">
+                <h1>Create room</h1>
+
+                <form id="form" class="form" autocomplete="off">
+                    <label class="container">
+                        <input id="form-is-listed" type="checkbox" name="is_listed" checked />
+                        <span class="checkmark"></span>
+                        Is listed
+                    </label>
+
+                    <label class="container">
+                        <input id="form-has-password" type="checkbox" name="has_password" />
+                        <span class="checkmark"></span>
+                        Has password
+                    </label>
+
+                    <label for="form-name">Name</label>
+                    <input id="form-name" type="text" name="room_name" />
+
+                    <label for="form-description">Description</label>
+                    <textarea id="form-description" name="room_description" style="resize: vertical"></textarea>
+
+                    <label id="from-password-label" for="form-password" style="display: none">Password</label>
+                    <input id="form-password" type="password" name="room_password" style="display: none" />
+
+                    <label for="form-member-name">Join as</label>
+                    <input id="form-member-name" type="text" name="member_name" />
+
+                    <div>
+                        <input id="submit-btn" type="submit" value="Submit" />
+                        <input id="close-btn" type="button" value="Close" />
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- Join room dialog -->
+        <dialog id="join-room-dialog" class="dialog" popover>
+            <div class="dialog-content">
+                <h1>Join room</h1>
+
+                <div id="join-room-name" class="join-room-name">Room name</div>
+                <div id="join-room-description" class="join-room-description">Room description</div>
+
+                <form id="join-form" class="form" autocomplete="off">
+                    <input id="join-form-room-uuid" type="hidden" name="room_uuid" value="" />
+
+                    <label for="join-form-member-name">Member name</label>
+                    <input id="join-form-member-name" type="text" name="member_name" />
+
+                    <label id="join-form-password-label" for="form-password" style="display: none">Room password</label>
+                    <input id="join-form-password" type="password" name="room_password" style="display: none" />
+
+                    <div>
+                        <input id="join-submit-btn" type="submit" value="Join" />
+                        <input id="join-close-btn" type="button" value="Close" />
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- Header -->
+        <div class="header">
+            <span>Public rooms</span>
+            <button id="open-btn" type="button">Create</button>
+            <button id="refresh-btn" type="button">Refresh</button>
+        </div>
+
+        <!-- List of rooms -->
+        <div id="room-list" class="content">
+            {% if not rooms %}
+            <div class="no-rooms">Refresh or create new room</div>
+            {% endif %} {% for room in rooms %}
+            <div class="room">
+                <div class="room-header">
+                    <span class="room-name" title="{{ room.uuid }}">{{ room.name }}</span>
+                    <span class="room-members">{{ room.online }} / {{ room.total }} online</span>
+                    <button
+                        class="room-join"
+                        type="button"
+                        onclick="join_room('{{room.uuid}}', '{{room.name}}', '{{room.description}}', {{room.has_password}})"
+                    >
+                        Join {% if room.has_password %} (password) {% else %} (open) {% endif %}
+                    </button>
+                </div>
+                <div class="room-description">{{ room.description }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <a href="/about">About the project</a>
+        </div>
+    </body>
+</html>

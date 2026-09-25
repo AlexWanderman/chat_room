@@ -1,0 +1,93 @@
+body {
+    display: grid;
+    grid-template-areas:
+        ". header ."
+        ". content ."
+        ". footer .";
+    grid-template-columns: auto minmax(0, 600px) auto;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    overflow: clip;
+}
+
+.form {
+    display: grid;
+    gap: 10px;
+    width: 300px;
+}
+
+.join-room-name {
+    margin-bottom: 6px;
+    background: var(--message-bg);
+    padding: 4px;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.join-room-description {
+    margin-bottom: 12px;
+}
+
+.header {
+    grid-area: header;
+    margin: 12px 8px 6px 8px;
+    font-size: large;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 6px;
+    align-items: center;
+}
+
+.content {
+    grid-area: content;
+    overflow: scroll;
+}
+
+.no-rooms {
+    margin: 16px 0;
+    text-align: center;
+}
+
+.room {
+    margin: 6px 4px;
+    padding: 4px;
+    display: grid;
+    gap: 6px;
+    background-color: var(--room-list-bg);
+    border-radius: 10px;
+}
+
+.room-header {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.room-name {
+    padding: 4px;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: var(--message-bg);
+    color: var(--message-fg);
+}
+
+.room-members {
+}
+
+.room-join {
+    width: fit-content;
+    justify-self: end;
+}
+
+.room-description {
+    padding: 6px;
+    text-align: justify;
+    color: var(--message-fg);
+}
+
+.footer {
+    grid-area: footer;
+    margin: 6px 4px 12px 4px;
+    text-align: center;
+}

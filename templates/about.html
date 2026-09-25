@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About</title>
+        <link rel="shortcut icon" href="/static/common/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/static/common/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/common/style.css" />
+        <link rel="stylesheet" href="/static/about/style.css" />
+    </head>
+    <body>
+        <div></div>
+
+        <div class="content">
+            <h1>About the project</h1>
+            <div>Simple realtime chat web app written in Rust, based on Axum. Web pages are rendered with Tera.</div>
+            <div>
+                App features chat rooms with privacy and password options. Members log into rooms and receive tokens
+                that allow them to join back with the same name. Messages can be sent to either all room members or to
+                one specific member privately (others wont see it).
+            </div>
+            <div>If all members leave the room, it will be removed.</div>
+            <a href="/">List of room</a>
+        </div>
+
+        <div></div>
+    </body>
+</html>

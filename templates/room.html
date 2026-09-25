@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ room.name }}</title>
+        <link rel="shortcut icon" href="/static/common/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/static/common/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/common/style.css" />
+        <link rel="stylesheet" href="/static/room/style.css" />
+        <script src="/static/room/script.js" type="module"></script>
+    </head>
+    <body data-room-uuid="{{ room.uuid }}">
+        <!-- Menu dialog -->
+        <dialog id="menu-dialog" popover>
+            <div class="menu-content">
+                <div class="menu-room-name" title="{{ room.uuid }}">{{ room.name }}</div>
+                <div class="menu-room-description">{{ room.description }}</div>
+                <div id="menu-you" class="menu-you"></div>
+                <div id="menu-members" class="menu-members"></div>
+                <button id="menu-close" type="button">Close</button>
+            </div>
+        </dialog>
+
+        <!-- Header -->
+        <div class="header">
+            <button id="header-quit" type="button">Quit</button>
+            <span></span>
+            <span>{{ room.name }}</span>
+            <span></span>
+            <button id="header-menu" type="button">Menu</button>
+        </div>
+
+        <!-- Messages -->
+        <div id="messages-list" class="content"></div>
+
+        <!-- Message form -->
+        <div class="footer">
+            <form class="footer-form" id="message-form" autocomplete="off">
+                <input id="message-form-text" type="text" name="message" placeholder="Message" />
+                <input id="message-form-submit" type="submit" value="Submit" />
+            </form>
+        </div>
+    </body>
+</html>

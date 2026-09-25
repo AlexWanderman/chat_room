@@ -1,0 +1,15 @@
+body {
+    display: grid;
+    grid-template-columns: auto minmax(0, 600px) auto;
+    height: 100vh;
+    overflow: clip;
+}
+
+.content {
+    margin: 6px;
+}
+
+.content div {
+    text-align: justify;
+    margin: 6px 0;
+}

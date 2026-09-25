@@ -1,0 +1,202 @@
+:root {
+    color-scheme: light dark;
+    --body-bg: light-dark(#dad7cd, #01110a);
+    --body-overlay-bg: light-dark(#d2c69fcc, #001e11cc);
+    --body-fg: light-dark(#14281d, #d0dac9);
+    --room-list-bg: light-dark(#c5bdb1, #0b301f);
+    --me-bg: light-dark(#8bb1ac, #0080a0);
+    --me-fg: light-dark(white, white);
+    --other-bg: light-dark(#b18b90, #ad2200);
+    --other-fg: light-dark(white, white);
+    --message-bg: light-dark(#a3b18a, #344e41);
+    --message-fg: light-dark(black, white);
+    --input-bg: light-dark(#a3b18a, #344e41);
+    --input-fg: light-dark(black, white);
+    --input-bg-focus: light-dark(#6e824a, #124e2f);
+    --input-secondary-bg: light-dark(#b6b6b6, #474747);
+    --input-secondary-fg: light-dark(black, white);
+    --input-secondary-bg-focus: light-dark(#7b826f, #15291f);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--body-fg);
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Dialog element */
+dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: var(--body-overlay-bg);
+    backdrop-filter: blur(3px);
+}
+
+dialog[open] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog > div {
+    /*width: min-content;*/
+    padding: 4px;
+}
+
+/* Anchors used as third class buttons */
+a:link {
+    text-decoration: none;
+    color: var(--message-fg);
+}
+
+a:visited {
+    text-decoration: none;
+    color: var(--message-fg);
+}
+
+a:hover {
+    text-decoration: underline solid;
+    color: var(--message-fg);
+}
+
+a:active {
+    text-decoration: underline solid;
+    color: var(--message-fg);
+}
+
+/* Button style */
+button {
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--input-fg);
+}
+
+button:hover,
+button:focus-visible {
+    background-color: var(--input-bg-focus);
+}
+
+/* General input */
+input {
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--input-fg);
+}
+
+input:hover,
+input:focus-visible {
+    background-color: var(--input-bg-focus);
+}
+
+/* Primary action */
+input[type="submit"] {
+    cursor: pointer;
+    background-color: var(--input-bg);
+    color: var(--input-fg);
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus-visible {
+    background-color: var(--input-bg-focus);
+}
+
+/* Secondary action */
+input[type="button"] {
+    cursor: pointer;
+    background-color: var(--input-secondary-bg);
+    color: var(--input-secondary-fg);
+}
+
+input[type="button"]:hover,
+input[type="button"]:focus-visible {
+    background-color: var(--input-secondary-bg-focus);
+}
+
+/* Text area with matching style */
+textarea {
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--input-fg);
+}
+
+textarea:hover,
+textarea:focus-visible {
+    background-color: var(--input-bg-focus);
+}
+
+/* Custom checkbox style */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--body-fg);
+    border-radius: 6px;
+}
+
+.checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 8px;
+    border: solid var(--body-fg);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.container:hover input ~ .checkmark {
+    background-color: var(--input-bg-focus);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--input-bg);
+}
+
+.container:hover input:checked ~ .checkmark {
+    background-color: var(--input-bg-focus);
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
