@@ -1,16 +1,7 @@
 # Committed
 
-Total system overhaul
-
-- Client design changes
-- Backend design changes
-- Room auth based on JWT
-- Room join dialog produces auth token
-- Room join requires auth token
-- Token lifetime is one hour
-- Client refreshes auth token (issues new JWT based on current one)
-- Server sends identity sync to inform client of its status
-- Client requests member sync to get list of members
+- Reading address from environment variables
+- Fixed readme file
 
 # ToFix
 
